@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Bootstrsp Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./assets/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid bg-dark text-white">
+        <form class="w-75" id="form">
+            <div class="row my-2">
+                <div class="col">
+                    <button id="sorting" class="btn btn-danger">Sort <i class="bi bi-sort-alpha-down"></i></button>
+                </div>
+                <div class="col">
+                    <input class="form-control" type="text" placeholder="Enter your next task" id="list-content">
+                </div>
+                <div class="col">
+                    <button id="addItem" class="btn btn-success"><i class="bi bi-plus-square-fill text-white"></i></button>
+                </div>
+            </div>
+            <div class="row bg-gradient my-2">
+                <ul id="item-wrapper" class="my-2 ms-auto me-auto ps-5 list-group">
+                </ul>
+            </div>
+        </form>
+    </div>
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="./assets/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.addLine {
+    text-decoration: line-through;
+    border-radius: 10px;
+    border-left: 2px solid darkslategrey;
+    border-right: 2px solid darkslategrey;
+}
+
+ul#item-wrapper .list-unstyled:hover .list-icon {
+    display: inline-block;
+}
