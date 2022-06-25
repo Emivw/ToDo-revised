@@ -15,17 +15,28 @@
 </head>
 
 <body>
-    <div class="container-fluid bg-dark text-white">
+    <div class="container-fluid bg-dark d-flex justify-content-center text-white text-center">
+
+
         <form class="w-75" id="form">
-            <div class="row my-2">
-                <div class="col">
-                    <button id="sorting" class="btn btn-danger">Sort <i class="bi bi-sort-alpha-down"></i></button>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Welcome New User</h3>
+                    <h4>This is your todo list</h4>
+                    <p> you can start by adding a new task in the field below</p>
+
                 </div>
-                <div class="col">
+            </div>
+            <div class="row my-2 d-flex justify-content-center">
+
+                <div class="col-md-12">
                     <input class="form-control" type="text" placeholder="Enter your next task" id="list-content">
                 </div>
-                <div class="col">
-                    <button id="addItem" class="btn btn-success"><i class="bi bi-plus-square-fill text-white"></i></button>
+                <div class="col-md-1">
+                    <button id="sorting" class="btn btn-grad">Sort <i class="bi bi-sort-alpha-down"></i></button>
+                </div>
+                <div class="col-md-1">
+                    <button id="addItem" class="btn btn-grad1">AddTask<i class="bi bi-plus-square text-white"></i></button>
                 </div>
             </div>
             <div class="row bg-gradient my-2">

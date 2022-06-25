@@ -1,72 +1,75 @@
-let lists = JSON.parse(localStorage.getItem("items")) ?
+let tasks = JSON.parse(localStorage.getItem("items")) ?
     JSON.parse(localStorage.getItem("items")) : [{
         id: 1,
-        item: "TV Stand",
+        item: "task One",
         createdDate: new Date(),
     }, ];
 //
 document.addEventListener("DOMContentLoaded", () => {
     readItems();
 });
-// Add item
+// Add new item
 function addItems() {
     try {
-        let list = document.getElementById("list-content").value;
-        // Fetch the last index of id
-        let index = lists.length + 1;
-        // Add a new item
-        lists.push({
+        let task = document.getElementById("list-content").value;
+        // getting the index for tasks
+        let index = tasks.length + 1;
+        // Adding a new item object
+        tasks.push({
             id: index !== undefined ? index : 1,
-            item: list,
+            item: task,
             createdDate: new Date(),
         });
-        // Save new data to the localstorage
-        localStorage.setItem("items", JSON.stringify(lists));
+        // Saving new data to the localstorage
+        localStorage.setItem("items", JSON.stringify(tasks));
     } catch (e) {
         console.log(e.message);
     }
     readItems();
 }
-// Load data
+// Loading the data to html
 function readItems() {
     let contents = document.querySelector("#item-wrapper");
     contents.innerHTML = "";
-    lists.forEach((item, index) => {
-        contents.innerHTML += `
-        <li class="bg-gradient list-unstyled" id="${index}">
+    tasks.forEach((item, index) => {
+        contents.innerHTML += `<button class="btn btn-grad2">
+        <li class=" list-unstyled" id="${index}">
         <input type="checkbox" onclick="itemCompleted(${index})" class="chkItem form-check-input">
         <span class="list-content">${item.item}</span>
-        <i class="bi bi-trash d-flex justify-content-end list-icon" onclick="removeItem(${index})" id="${index}"></i>
-        </li>
+        <i class="bi bi-trash d-flex justify-content-end list-icon delete" onclick="removeItem(${index})" id="${index}"></i>
+        </li></button>
         `;
     });
 }
-// btnAddItem
+// Add item button 
 const btnAddItem = document.querySelector("#addItem");
 btnAddItem.addEventListener("click", addItems);
-// Checked
+// Checked checkbox crossout
 function itemCompleted(id) {
     if (document.querySelectorAll(".chkItem")[id].checked) {
-        document.querySelectorAll(".list-content")[id].classList.add("addLine");
+        document.querySelectorAll(".list-content")[id].classList.add("Line");
+        localStorage.setItem("items", JSON.stringify(tasks));
+
     } else {
-        document.querySelectorAll(".list-content")[id].classList.remove("addLine");
+        document.querySelectorAll(".list-content")[id].classList.remove("Line");
+        localStorage.setItem("items", JSON.stringify(tasks));
     }
 }
-// Sorting
+// Sorting the data
 document.querySelector("#sorting").addEventListener("click", () => {
-    lists.sort((a, b) => {
-        return a.item < b.item ? -1 : 0;
+    tasks.sort((x, y) => {
+        return x.item < y.item ? -1 : 0;
     });
-    // Save new data to the localstorage
-    localStorage.setItem("items", JSON.stringify(lists));
+    // Saving the data to the localstorage
+    localStorage.setItem("items", JSON.stringify(tasks));
     readItems();
 });
 
 function removeItem(id) {
     if (id > -1) {
-        lists.splice(id, 1);
-        // Apply the change
-        localStorage.setItem("items", JSON.stringify(lists));
+        tasks.splice(id, 1);
+        // Appling the delete to local
+        localStorage.setItem("items", JSON.stringify(tasks));
     }
     readItems();
 }
